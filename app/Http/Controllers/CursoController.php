@@ -32,6 +32,8 @@ class CursoController extends Controller
        // return $request->all();
        $curso = Curso::create($request->all());
 
+       session()->flash('info','Creado satisfatoriamente');
+
        return redirect()->route('cursos.show', $curso);
        //return $curso; <-devuelve el objeto para verificar los datos del formulario
     }
