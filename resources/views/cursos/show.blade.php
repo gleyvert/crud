@@ -19,9 +19,10 @@
 </form>
 @endsection
 
+
+@if(session('info'))
 @push('scripts')
     <script type="text/javascript">
-    
         Swal.fire(
         "{{session('info')}}", //<-Asi se imprime un session flass 
         'oprima el boton ok!',
@@ -31,3 +32,5 @@
     </script>
 
 @endpush
+
+@endif

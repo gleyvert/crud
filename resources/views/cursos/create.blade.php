@@ -5,7 +5,7 @@
 @section('content')
 
 <h1 style="color:red;">en esta pagina podras crear cursos</h1>
-<form action="{{route('cursos.store')}}" method="POST">
+<form action="{{route('cursos.store')}}" method="POST" enctype="multipart/form-data">
     @csrf <!--utiliza un token como medida de seguridad que valida el formulario-->
     <label for="">
          Nombre:
@@ -46,6 +46,17 @@
         <input type="text"  name="categoria" value="{{old('categoria')}}">
     </label>
     @error('categoria')
+        <br>
+        <span>*{{$message}}</span>
+        <br>
+    @enderror
+    <br>
+    <label for="">
+        Imagen:
+        <br>
+        <input type="file"  name="featured" value="{{old('featured')}}">
+    </label>
+    @error('featured')
         <br>
         <span>*{{$message}}</span>
         <br>

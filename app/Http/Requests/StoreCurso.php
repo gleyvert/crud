@@ -25,8 +25,8 @@ class StoreCurso extends FormRequest
             'name'          => 'required|min:3|max:10',
             'slug'          => 'required|unique:cursos',
             'description'   => 'required',
-            'categoria'     => 'required'
-           
+            'categoria'     => 'required',
+            'featured'      => ''
         ];
     }
 // la funcion tiene que ser asi messages porq asi esta definida y es asi como hara cambiar el mensaje  que quiere que diga

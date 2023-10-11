@@ -30,6 +30,12 @@ class CursoController extends Controller
        $curso->save();
        */
        // return $request->all();
+       if($request->hasFile('featured')){
+            $file = $request->file('featured');
+            $destinationPath = 'images/featureds';
+            $filename = time(). '-'. $file->getClientOriginalName();
+            $uploadSuccess = $request->file('featured')->move($destinationPath,$filename);
+       }
        $curso = Curso::create($request->all());
 
        session()->flash('info','Creado satisfatoriamente');
@@ -75,6 +81,8 @@ class CursoController extends Controller
         $curso->save(); */
 
         $curso->update($request->all());
+
+        session()->flash('info','Creado satisfatoriamente');
 
         return redirect()->route('cursos.show', $curso);
         //return $curso;
